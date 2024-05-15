@@ -78,7 +78,7 @@ indep_year < 1990;
 
 -- 問14
 -- 全ての地方をグループ化せずに表示してください。
-SELECT region
+SELECT DISTINCT region
 FROM countries;
 
 -- 問15
@@ -167,10 +167,10 @@ LEFT JOIN countries ON celebrities.country_code = countries.code
 
 -- 問28
 -- 全ての有名人の名前,国名、第一言語を出力してください。
- SELECT celebrities.name, countries.name, countrylanguages.language
-    -> FROM celebrities
-    -> LEFT JOIN countries ON celebrities.country_code = countries.code
-    -> LEFT JOIN countrylanguages ON countries.code = countrylanguages.country_code AND countrylanguages.is_official = 'T';
+SELECT celebrities.name, countries.name, countrylanguages.language
+FROM celebrities
+LEFT JOIN countries ON celebrities.country_code = countries.code
+LEFT JOIN countrylanguages ON countries.code = countrylanguages.country_code AND countrylanguages.is_official = 'T';
 
 -- 問29
 -- 全ての有名人の名前と国名をに出力してください。 ただしテーブル結合せずサブクエリを使用してください。
